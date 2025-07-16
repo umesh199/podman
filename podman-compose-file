@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  xxxx-umeshr:
+    image: docker.io/alpine:latest  # replace with your desired image
+    container_name: xxxx-umeshr
+    hostname: xxxx-umeshr
+    command: ["sh", "-c", "while true; do sleep 60; done"]
+    networks:
+      macvlan0:
+        ipv4_address: 10.76.2.3
+    restart: unless-stopped
+
+networks:
+  macvlan0:
+    external: true
